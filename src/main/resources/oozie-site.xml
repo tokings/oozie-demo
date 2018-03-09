@@ -1,0 +1,160 @@
+  <configuration>
+    
+    <property>
+      <name>credentialStoreClassPath</name>
+      <value>/var/lib/ambari-agent/cred/lib/*</value>
+    </property>
+    
+    <property>
+      <name>hadoop.security.credential.provider.path</name>
+      <value>jceks://file/usr/hdp/current/oozie-server/conf/oozie-site.jceks</value>
+    </property>
+    
+    <property>
+      <name>local.realm</name>
+      <value>EXAMPLE.COM</value>
+    </property>
+    
+    <property>
+      <name>oozie.action.retry.interval</name>
+      <value>30</value>
+    </property>
+    
+    <property>
+      <name>oozie.authentication.kerberos.keytab</name>
+      <value>/etc/security/keytabs/spnego.service.keytab</value>
+    </property>
+    
+    <property>
+      <name>oozie.authentication.kerberos.name.rules</name>
+      <value>RULE:[1:$1@$0](ambari-qa-xyhdp@EXAMPLE.COM)s/.*/ambari-qa/
+RULE:[1:$1@$0](hbase-xyhdp@EXAMPLE.COM)s/.*/hbase/
+RULE:[1:$1@$0](hdfs-xyhdp@EXAMPLE.COM)s/.*/hdfs/
+RULE:[1:$1@$0](spark-xyhdp@EXAMPLE.COM)s/.*/spark/
+RULE:[1:$1@$0](zeppelin-xyhdp@EXAMPLE.COM)s/.*/zeppelin/
+RULE:[1:$1@$0](.*@EXAMPLE.COM)s/@.*//
+RULE:[2:$1@$0](activity_analyzer@EXAMPLE.COM)s/.*/activity_analyzer/
+RULE:[2:$1@$0](activity_explorer@EXAMPLE.COM)s/.*/activity_explorer/
+RULE:[2:$1@$0](amshbase@EXAMPLE.COM)s/.*/ams/
+RULE:[2:$1@$0](amszk@EXAMPLE.COM)s/.*/ams/
+RULE:[2:$1@$0](atlas@EXAMPLE.COM)s/.*/atlas/
+RULE:[2:$1@$0](dn@EXAMPLE.COM)s/.*/hdfs/
+RULE:[2:$1@$0](hbase@EXAMPLE.COM)s/.*/hbase/
+RULE:[2:$1@$0](hive@EXAMPLE.COM)s/.*/hive/
+RULE:[2:$1@$0](jhs@EXAMPLE.COM)s/.*/mapred/
+RULE:[2:$1@$0](livy@EXAMPLE.COM)s/.*/livy/
+RULE:[2:$1@$0](nm@EXAMPLE.COM)s/.*/yarn/
+RULE:[2:$1@$0](nn@EXAMPLE.COM)s/.*/hdfs/
+RULE:[2:$1@$0](oozie@EXAMPLE.COM)s/.*/oozie/
+RULE:[2:$1@$0](rm@EXAMPLE.COM)s/.*/yarn/
+RULE:[2:$1@$0](yarn@EXAMPLE.COM)s/.*/yarn/
+DEFAULT</value>
+    </property>
+    
+    <property>
+      <name>oozie.authentication.kerberos.principal</name>
+      <value>HTTP/master.embracesource.com@EXAMPLE.COM</value>
+    </property>
+    
+    <property>
+      <name>oozie.authentication.simple.anonymous.allowed</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>oozie.authentication.type</name>
+      <value>kerberos</value>
+    </property>
+    
+    <property>
+      <name>oozie.base.url</name>
+      <value>http://master.embracesource.com:11000/oozie</value>
+    </property>
+    
+    <property>
+      <name>oozie.credentials.credentialclasses</name>
+      <value>hcat=org.apache.oozie.action.hadoop.HCatCredentials,hive2=org.apache.oozie.action.hadoop.Hive2Credentials</value>
+    </property>
+    
+    <property>
+      <name>oozie.db.schema.name</name>
+      <value>oozie</value>
+    </property>
+    
+    <property>
+      <name>oozie.processing.timezone</name>
+      <value>GMT+0800</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.AuthorizationService.authorization.enabled</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.AuthorizationService.security.enabled</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.coord.check.maximum.frequency</name>
+      <value>false</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.HadoopAccessorService.hadoop.configurations</name>
+      <value>*=/usr/hdp/current/hadoop-client/conf</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.HadoopAccessorService.kerberos.enabled</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.HadoopAccessorService.kerberos.principal</name>
+      <value>oozie/master.embracesource.com@EXAMPLE.COM</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.HadoopAccessorService.keytab.file</name>
+      <value>/etc/security/keytabs/oozie.service.keytab</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.JPAService.jdbc.driver</name>
+      <value>org.postgresql.Driver</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.JPAService.jdbc.url</name>
+      <value>jdbc:postgresql://192.168.1.165:5432/oozie</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.JPAService.jdbc.username</name>
+      <value>postgres</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.SparkConfigurationService.spark.configurations</name>
+      <value>*=spark-conf</value>
+    </property>
+    
+    <property>
+      <name>oozie.service.URIHandlerService.uri.handlers</name>
+      <value>org.apache.oozie.dependency.FSURIHandler,org.apache.oozie.dependency.HCatURIHandler</value>
+    </property>
+    
+    <property>
+      <name>oozie.services.ext</name>
+      <value>
+      org.apache.oozie.service.JMSAccessorService,org.apache.oozie.service.PartitionDependencyManagerService,org.apache.oozie.service.HCatAccessorService</value>
+    </property>
+    
+    <property>
+      <name>oozie.zookeeper.secure</name>
+      <value>true</value>
+    </property>
+    
+  </configuration>
