@@ -63,14 +63,14 @@ public class KerberosAuthenticator {
 		UserGroupInformation ugi = UserGroupInformation.getLoginUser();
 		
 		if(ugi != null) {
-			ugi.doAs(new PrivilegedExceptionAction<T>() {
+			return ugi.doAs(new PrivilegedExceptionAction<T>() {
 				@Override
 				public T run() throws Exception {
 					return executor.exec();
 				}
 			});
+		}else {
+			throw new Exception("not aunthenicated! ignore this exec.");
 		}
-		
-		throw new Exception("not aunthenicated! ignore this exec.");
 	}
 }
